@@ -1,0 +1,23 @@
+{
+  "name": "sitenoticias",
+  "version": "1.0.0",
+  "description": "Este é o repositório para o desenvolvimento de um site de notícias inovador, que utiliza Inteligência Artificial para gerar resumos personalizados das últimas notícias. O projeto é projetado para oferecer uma experiência única, permitindo que os usuários filtrem conteúdos por nichos de interesse (como tecnologia, esportes, saúde) e recebam resumos diários, mensais ou específicos, com análise de sentimento incluída.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mongodb": "^6.10.0",
+    "mongoose": "^8.8.1",
+    "yarn": "^1.22.22"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
