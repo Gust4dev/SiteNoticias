@@ -1,7 +1,14 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import newsRoutes from "./src/routes/noticias.js";
+import userRoutes from "./src/routes/user.js";
+import userPrefRoutes from "./src/routes/userpref.js";
+
+// Importação das rotas
 const newsRoutes = require("./src/routes/newsRoutes");
+const userRoutes = require("./src/routes/userRoutes");
+const userPrefRoutes = require("./src/routes/userPrefRoutes");
 
 dotenv.config();
 
@@ -19,11 +26,21 @@ mongoose
     console.error("Erro ao conectar ao MongoDB:", error);
   });
 
-// middlewares
+// Middlewares
 app.use(express.json());
-app.use("/news", newsRoutes);
 
-// start server
+// Verificação de rotas existentes
+app.use((req, res, next) => {
+  console.log(`Nova requisição: ${req.method} ${req.url}`);
+  next();
+});
+
+// Rotas
+app.use("/news", newsRoutes);
+app.use("/users", userRoutes);
+app.use("/userprefs", userPrefRoutes);
+
+// Inicia o servidor
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
